@@ -5,6 +5,7 @@ import { EKMixin, keyDown, keyPress } from 'ember-keyboard';
 import { on } from '@ember/object/evented';
 
 export default Controller.extend(EKMixin, {
+  flashMessages: service(),
   search: service(),
   searchQuery: oneWay('search.q'),
   session: service(),
@@ -28,7 +29,6 @@ export default Controller.extend(EKMixin, {
         queryParams: {
           q: this.searchQuery,
           page: 1,
-          all_keywords: null,
         },
       });
     },
